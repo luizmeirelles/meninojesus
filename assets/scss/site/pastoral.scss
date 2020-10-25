@@ -1,0 +1,272 @@
+@import '../reset';
+@import '../mixins';
+@import '../variables';
+@import 'style';
+@import 'header';
+@import 'footer';
+
+section {
+  &.pastoral {
+    width: 100%;
+    min-height: 100vh;
+    padding: 180px 0 60px;
+
+    .container-pastoral {
+      @include display-flex(wrap, flex-start, flex-start);
+
+
+
+      .lista-pastoral{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .item-noticias {
+          width: calc(100% / 3 - 25px);
+
+          figure {
+            padding-bottom: 70%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+            position: relative;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              @include transition();
+              position: absolute;
+              top: 0;
+            }
+
+            &:before {
+              content: '';
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+              left: 0;
+              background: linear-gradient(rgba(85, 106, 98, 0) 0%, #000 100%);
+              opacity: .7;
+              z-index: 1;
+            }
+          }
+
+          .subtitulo {
+            height: 64px;
+            margin: 15px 0;
+            color: $cor1;
+            text-transform: uppercase;
+            @include display-flex(wrap, center, flex-start);
+          }
+
+          .texto {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+
+          .btn {
+            margin-top: 15px;
+            display: table;
+          }
+
+          &:hover {
+
+            figure {
+              img {
+                transform: scale(1.05);
+                @include transition();
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  section {
+    &.pastoral {
+      padding: 160px 0 50px;
+
+      .container-pastoral {
+        .coluna {
+
+          .box {
+            margin-top: 25px;
+            padding: 13px 0;
+
+            .texto {
+              @include fontsize(15);
+            }
+
+            .compartilhamento {
+
+              a {
+                margin-left: 15px;
+
+                svg {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .mais-noticias {
+        margin-top: 70px;
+
+        .carrossel-noticias {
+          .item-noticias {
+            //width: calc(100% / 3 - 25px);
+            margin-bottom: 27px;
+
+            .subtitulo {
+              margin: 13px 0;
+            }
+
+            .btn {
+              margin-top: 13px;
+            }
+          }
+
+          .owl-nav {
+            margin-top: 25px;
+
+            .owl-prev, .owl-next {
+              margin: 0 25px;
+
+              svg {
+                width: 27px;
+                height: 23px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1366px) {
+  section {
+    &.pastoral {
+      padding: 120px 0 40px;
+
+      .container-pastoral {
+        .coluna {
+
+          .box {
+            margin-top: 20px;
+            padding: 10px 0;
+
+            .texto {
+              @include fontsize(14);
+            }
+
+            .compartilhamento {
+
+              a {
+                margin-left: 15px;
+
+                svg {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .mais-noticias{
+        margin-top: 50px;
+
+        .carrossel-noticias {
+          .item-noticias {
+            //width: calc(100% / 3 - 20px);
+            margin-bottom: 25px;
+
+            .subtitulo {
+              height: 45px;
+              margin: 10px 0;
+            }
+
+            .btn {
+              margin-top: 10px;
+            }
+          }
+
+          .owl-nav {
+            margin-top: 20px;
+
+            .owl-prev, .owl-next {
+              margin: 0 20px;
+
+              svg {
+                width: 25px;
+                height: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    &.pastoral {
+      min-height: 100vh;
+      padding: 110px 0 30px;
+
+      .container-pastoral {
+        @include display-flex(wrap, flex-start, flex-start, column-reverse);
+
+        .coluna {
+          width: 100%;
+
+          .box {
+            @include display-flex(wrap, center, center, column);
+
+            .compartilhamento {
+              margin-top: 10px;
+              @include display-flex(wrap, center, center);
+
+              a {
+                margin: 0 15px;
+
+                svg {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+          }
+
+          &:first-child {
+            padding-right: 0;
+          }
+
+          &:last-child {
+            padding-left: 0;
+            margin-bottom: 20px;
+          }
+        }
+      }
+
+      .mais-noticias{
+
+      }
+    }
+  }
+}

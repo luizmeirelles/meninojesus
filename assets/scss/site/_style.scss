@@ -1,0 +1,338 @@
+.container {
+  width: 80%;
+  max-width: 1536px;
+  margin: 0 auto;
+
+  &-fluid {
+    width: 90%;
+    max-width: 1728px;
+    margin: 0 auto;
+  }
+
+  &-full {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+
+  &-sm {
+    width: 70%;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+}
+
+.swal2-image {
+  margin-top: 0 !important;
+}
+
+.swal2-container {
+  padding: 20px !important;
+}
+
+.titulo-sweet {
+  font-family: $fonte-ubuntu_bold;
+  color: #FFF !important;
+  @include fontsize(22);
+  line-height: normal;
+}
+
+.conteudo-sweet {
+  width: 290px;
+  margin: 0 auto;
+  font-family: $fonte_primaria_medium;
+  color: #FFF !important;
+  @include fontsize(18);
+  line-height: 1.3 !important;
+}
+
+.botao-sweet {
+  height: 45px;
+  font-family: $fonte_primaria_bold;
+  text-transform: uppercase;
+  @include fontsize(16);
+  max-width: 330px !important;
+  border-radius: 30px !important;
+  color: #696969 !important;
+  white-space: nowrap;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+.titulo {
+  margin-bottom: 30px;
+  font-family: $fonte_primaria_bold;
+  @include fontsize(34);
+  color: $cor1;
+  position: relative;
+
+  &:before {
+    content: '';
+    width: 90px;
+    height: 2px;
+    background: $cor2;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+  }
+}
+
+.subtitulo {
+  margin-bottom: 5px;
+  font-family: $fonte_primaria_medium;
+  @include fontsize(24);
+  line-height: normal;
+  color: $cor1;
+}
+
+.texto {
+  font-family: $fonte_primaria_regular;
+  @include fontsize(18);
+  line-height: 26px;
+  color: $cinza;
+
+  p {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+  strong{
+    font-family: $fonte_primaria_bold;
+  }
+
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 16px;
+  }
+
+  &::-webkit-scrollbar-button {
+    width: 20px;
+    height: 100%;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $cinza;
+    border: 5px solid $cinza;
+    border-radius: 85px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba($cinza, .5);
+    border-radius: 7px;
+    border: 2px solid $branco;
+    padding: 0 2px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+.btn {
+  //height: 48px;
+  padding: 13px 45px;
+  font-family: $fonte_primaria_bold;
+  @include fontsize(18);
+  letter-spacing: 1px;
+  line-height: normal;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  @include transition();
+  outline: none;
+  background: $cor1;
+  color: $branco;
+
+  &.btn-carregando {
+    position: relative;
+    color: transparent !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    cursor: initial;
+
+    &:before {
+      content: '';
+      height: 20px;
+      width: 20px;
+      animation: rotate 0.6s infinite linear;
+      border: 2px solid $branco;
+      border-right-color: transparent;
+      border-radius: 50%;
+      position: absolute;
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+
+    &:hover{
+      transform: scale(1);
+    }
+  }
+
+  &:hover {
+    @include transition();
+    transform: scale(1.02);
+  }
+
+  &.btn-sm {
+    padding: 11px 35px;
+    @include fontsize(14);
+  }
+}
+
+.formulario {
+
+  .wb-campos {
+    margin-bottom: 20px;
+    position: relative;
+
+    input, textarea {
+      width: 100%;
+      padding: 13px 10px;
+      border-radius: 5px;
+      border: 1px solid $cinza;
+      font-family: $fonte_primaria_regular;
+      @include fontsize(16);
+      color: $cor1;
+      outline: none;
+    }
+  }
+
+  .linha {
+    margin: 0 -12px;
+    @include display-flex(nowrap, flex-start, space-between);
+
+    $max_12: 100.0;
+    $step_12: 8.333333;
+    @for $i from 1 through ceil($max_12/$step_12) {
+      $value: ($i - 1)*$step_12 + 8.333333;
+      .col-#{$i} {
+        width: percentage($value/100);
+        padding: 0 12px;
+      }
+    }
+  }
+
+  .help-block {
+    width: 100%;
+    margin-top: 5px;
+    font-family: $fonte_primaria_regular;
+    @include fontsize(12);
+    color: red !important;
+    position: absolute;
+    bottom: -15px;
+    left: 12px;
+  }
+}
+
+@media (max-width: 1600px) {
+
+  .titulo {
+    margin-bottom: 23px;
+    @include fontsize(35);
+
+    &:before {
+      width: 80px;
+    }
+  }
+
+  .subtitulo {
+    @include fontsize(22);
+  }
+
+  .texto {
+    @include fontsize(16);
+    line-height: 24px;
+
+    p {
+      margin-bottom: 13px;
+    }
+  }
+
+  .btn {
+    padding: 12px 40px;
+    @include fontsize(17);
+
+    &.btn-sm {
+      padding: 10px 33px;
+      @include fontsize(13);
+    }
+  }
+}
+
+@media (max-width: 1366px) {
+
+  .titulo {
+    margin-bottom: 20px;
+    @include fontsize(28);
+
+    &:before {
+      width: 70px;
+    }
+  }
+
+  .subtitulo {
+    @include fontsize(18);
+  }
+
+  .texto {
+    @include fontsize(15);
+    line-height: 23px;
+
+    p {
+      margin-bottom: 10px;
+    }
+  }
+
+  .btn {
+    padding: 11px 35px;
+    @include fontsize(16);
+
+    &.btn-sm {
+      padding: 9px 30px;
+      @include fontsize(12);
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .formulario {
+
+    .wb-campos {
+      margin-bottom: 20px;
+      position: relative;
+
+      input, textarea {
+        padding: 12px 10px;
+        @include fontsize(15);
+      }
+    }
+
+    .linha {
+      @include display-flex(wrap, flex-start, space-between);
+
+      $max_12: 100.0;
+      $step_12: 8.333333;
+      @for $i from 1 through ceil($max_12/$step_12) {
+        $value: ($i - 1)*$step_12 + 8.333333;
+        .col-#{$i} {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
