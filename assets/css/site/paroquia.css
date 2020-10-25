@@ -1330,10 +1330,6 @@ section.paroquia .container-paroquia .coluna .titulo {
   color: #3B2102;
 }
 
-section.paroquia .container-paroquia .coluna .titulo:before {
-  display: none;
-}
-
 section.paroquia .container-paroquia .coluna .titulo-medio {
   margin-bottom: 20px;
   color: #696969;

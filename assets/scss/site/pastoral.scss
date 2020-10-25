@@ -14,8 +14,6 @@ section {
     .container-pastoral {
       @include display-flex(wrap, flex-start, flex-start);
 
-
-
       .lista-pastoral{
         width: 100%;
         display: flex;
